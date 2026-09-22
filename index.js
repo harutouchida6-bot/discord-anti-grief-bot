@@ -73,7 +73,12 @@ process.on("unhandledRejection", (error) => {
   console.error("Unhandled rejection:", error);
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN)
+  .then(() => console.log("Discordへのログイン処理を開始しました"))
+  .catch((error) => {
+    console.error("Discordログインエラー:", error.message);
+    process.exit(1);
+  });
 http.createServer((req, res) => {
   res.writeHead(200);
   res.end("Discord Anti-Grief Bot is running!");
