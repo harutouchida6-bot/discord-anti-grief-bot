@@ -89,7 +89,12 @@ client.on("shardReady", (id) => {
 client.on("shardError", (error) => {
   console.error("Discord shardError:", error.message);
 });
-
+client.on("shardDisconnect", (event, id) => {
+  console.error("Discord shardDisconnect:", id, event.code, event.reason);
+});
+client.on("shardReconnecting", (id) => {
+  console.log("Discord shardReconnecting:", id);
+});
 const loginTimeout = setTimeout(() => {
   console.error("Discordログインが30秒以内に完了しませんでした");
 }, 30000);
