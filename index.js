@@ -73,9 +73,34 @@ process.on("unhandledRejection", (error) => {
   console.error("Unhandled rejection:", error);
 });
 console.log("Discordログイン処理を実行します");
+
+client.on("debug", (info) => {
+  console.log("Discord DEBUG:", info);
+});
+
+client.on("warn", (info) => {
+  console.warn("Discord WARN:", info);
+});
+
+client.on("shardReady", (id) => {
+  console.log("Discord shardReady:", id);
+});
+
+client.on("shardError", (error) => {
+  console.error("Discord shardError:", error.message);
+});
+
+const loginTimeout = setTimeout(() => {
+  console.error("Discordログインが30秒以内に完了しませんでした");
+}, 30000);
+
 client.login(process.env.DISCORD_TOKEN)
-  .then(() => console.log("Discordへのログイン処理を開始しました"))
+  .then(() => {
+    clearTimeout(loginTimeout);
+    console.log("Discordへのログイン処理が完了しました");
+  })
   .catch((error) => {
+    clearTimeout(loginTimeout);
     console.error("Discordログインエラー:", error.message);
     process.exit(1);
   });
