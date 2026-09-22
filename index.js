@@ -17,7 +17,7 @@ const spam = require("./src/antispam");
 const invite = require("./src/invite");
 const mention = require("./src/mention");
 const logger = require("./src/logger");
-
+console.log("DISCORD_TOKEN設定:", !!process.env.DISCORD_TOKEN);
 if (!process.env.DISCORD_TOKEN) {
   console.error("DISCORD_TOKEN が設定されていません。.env を確認してください。");
   process.exit(1);
