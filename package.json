@@ -1,0 +1,16 @@
+{
+  "name": "discord-anti-grief-bot",
+  "version": "1.0.0",
+  "description": "Basic Discord anti-spam and anti-abuse bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.21.0",
+    "dotenv": "^16.6.1"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}

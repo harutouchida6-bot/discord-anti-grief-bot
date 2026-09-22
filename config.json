@@ -1,0 +1,23 @@
+{
+  "spam": {
+    "messageCount": 6,
+    "windowSeconds": 8,
+    "deleteRecentMessages": true,
+    "timeoutMinutes": 10
+  },
+  "invite": {
+    "enabled": true,
+    "timeoutMinutes": 5
+  },
+  "mention": {
+    "enabled": true,
+    "maxUserMentions": 5,
+    "blockEveryoneHere": true,
+    "timeoutMinutes": 10
+  },
+  "warnings": {
+    "enabled": true,
+    "timeoutAfterWarnings": 3,
+    "warningWindowMinutes": 60
+  }
+}
