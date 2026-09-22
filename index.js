@@ -1,3 +1,5 @@
+const http = require("http");
+const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 
 const {
@@ -72,3 +74,9 @@ process.on("unhandledRejection", (error) => {
 });
 
 client.login(process.env.DISCORD_TOKEN);
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Discord Anti-Grief Bot is running!");
+}).listen(PORT, () => {
+  console.log(`Web server listening on port ${PORT}`);
+});
