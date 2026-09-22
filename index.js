@@ -1,4 +1,12 @@
 const http = require("http");
+const https = require("https");
+
+https.get("https://discord.com/api/v10/gateway", (res) => {
+  console.log("Discord API接続テスト:", res.statusCode);
+  res.resume();
+}).on("error", (error) => {
+  console.error("Discord API接続エラー:", error.message);
+});
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 
