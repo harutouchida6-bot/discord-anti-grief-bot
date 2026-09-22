@@ -72,7 +72,7 @@ client.on("error", (error) => console.error("Discord client error:", error));
 process.on("unhandledRejection", (error) => {
   console.error("Unhandled rejection:", error);
 });
-
+console.log("Discordログイン処理を実行します");
 client.login(process.env.DISCORD_TOKEN)
   .then(() => console.log("Discordへのログイン処理を開始しました"))
   .catch((error) => {
